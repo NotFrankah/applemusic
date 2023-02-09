@@ -12,6 +12,8 @@ class ListenNow extends StatefulWidget {
 }
 
 class _ListenNowState extends State<ListenNow> {
+int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
 
@@ -20,33 +22,40 @@ class _ListenNowState extends State<ListenNow> {
         theme: new ThemeData(scaffoldBackgroundColor: const Color(00000)),
         home: Scaffold(
           appBar: null,
-            body:  SingleChildScrollView(
-                child: Column(
+          body:  SingleChildScrollView(
+            child: Column(
                 children: [topRow,
                   FrontPageBoxes(),
                   FrontPageBoxes(),
                 ]
             ),),
     bottomNavigationBar: BottomNavigationBar(
-    items: const <BottomNavigationBarItem>[
+     currentIndex: 0,
+     onTap: (index) => setState(() => currentIndex = index),
+     items: const <BottomNavigationBarItem>[
     BottomNavigationBarItem(
     icon: Icon(Icons.play_circle),
     label: 'Listen Now',
+      backgroundColor: Colors.black,
     ),
     BottomNavigationBarItem(
-    icon: Icon(Icons.wifi),
+    icon: Icon(Icons.sensors_outlined),
     label: 'Radio',
+      backgroundColor: Colors.black,
     ),
     BottomNavigationBarItem(
     icon: Icon(Icons.library_music),
     label: 'Library',
+      backgroundColor: Colors.black,
     ),
     BottomNavigationBarItem(
     icon: Icon(Icons.search),
     label: 'Search',
+      backgroundColor: Colors.black,
       ),
     ],
     ),
+
     ),
 
         );
@@ -74,19 +83,26 @@ class _ListenNowState extends State<ListenNow> {
           ]));}
 
 
-class FrontPageBoxes extends StatelessWidget {
+
+class FrontPageBoxes extends StatefulWidget {
   const FrontPageBoxes({Key? key}) : super(key: key);
 
+  @override
+  State<FrontPageBoxes> createState() => _FrontPageBoxesState();
+}
+
+class _FrontPageBoxesState extends State<FrontPageBoxes> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         padding: const EdgeInsets.all(32),
-        child: InkWell(
-        borderRadius: BorderRadius.circular(25),
+    child: InkWell(
+    borderRadius: BorderRadius.circular(25),
     child: Ink(
     height: MediaQuery.of(context).size.width * 1,
     width: MediaQuery.of(context).size.height * 0.8,
     color: Colors.grey,
     )));
   }
+
 }
