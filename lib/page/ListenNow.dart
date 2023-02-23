@@ -1,24 +1,21 @@
-import 'package:applemusic/page/RadioPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainPage());
+  runApp(const ListenNow());
 }
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class ListenNow extends StatefulWidget {
+  const ListenNow({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<ListenNow> createState() => _ListenNowState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _ListenNowState extends State<ListenNow> {
 int currentIndex = 0;
 final screens = [
-  MainPage(),
-  RadioPage(),
-  RadioPage(),
-  RadioPage(),];
+  Center(child: Text('Listen Now')),
+];
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +67,9 @@ final screens = [
   Widget topRow = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
+
           children: [
+
             Container(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: const Text(
@@ -78,7 +77,7 @@ final screens = [
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontSize: 20)
+                        fontSize:20)
                 )
             ),
             Spacer(),
@@ -103,8 +102,8 @@ class _FrontPageBoxesState extends State<FrontPageBoxes> {
     child: InkWell(
     borderRadius: BorderRadius.circular(25),
     child: Ink(
-    height: MediaQuery.of(context).size.height * 0.5,
-    width: MediaQuery.of(context).size.width * 0.8,
+    height: MediaQuery.of(context).size.width * 1,
+    width: MediaQuery.of(context).size.height * 0.8,
     color: Colors.grey,
     )));
   }
