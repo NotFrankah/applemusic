@@ -61,9 +61,9 @@ class _FrontPageBoxesState extends State<FrontPageBoxes> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        padding: const EdgeInsets.all(32),
+        padding: const EdgeInsets.all(12),
         child: InkWell(
-            borderRadius: BorderRadius.circular(25),
+            customBorder: CircleBorder(),
             child: Ink(
               height: MediaQuery.of(context).size.width * 1,
               width: MediaQuery.of(context).size.height * 0.8,
