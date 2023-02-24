@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RadioPage extends StatefulWidget {
-  const RadioPage({Key? key}) : super(key: key);
+class SearchPage extends StatefulWidget {
+  const SearchPage({Key? key}) : super(key: key);
 
   @override
-  State<RadioPage> createState() => _RadioPageState();
+  State<SearchPage> createState() => _SearchPageState();
 }
 
-class _RadioPageState extends State<RadioPage> {
+class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
