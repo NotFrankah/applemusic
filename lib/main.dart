@@ -1,5 +1,7 @@
+import 'package:applemusic/page/LibraryPage.dart';
 import 'package:applemusic/page/RadioPage.dart';
 import 'package:applemusic/page/ListenNow.dart';
+import 'package:applemusic/page/SearchPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,26 +17,20 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
-  final screens = [
+
+  final _pageOptions = [
     ListenNow(),
     RadioPage(),
     LibraryPage(),
+    SearchPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter layout demo',
-      theme: new ThemeData(scaffoldBackgroundColor: const Color(00000)),
       home: Scaffold(
-        appBar: null,
-        body: SingleChildScrollView(
-          child: Column(children: [
-            topRow,
-            FrontPageBoxes(),
-            FrontPageBoxes(),
-          ]),
-        ),
+        backgroundColor: Colors.black,
+        body: _pageOptions[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
@@ -63,41 +59,5 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
-  }
-
-  Widget topRow = Container(
-      padding: const EdgeInsets.all(32),
-      child: Row(children: [
-        Container(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: const Text('Listen Now',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20))),
-        Spacer(),
-        Icon(Icons.person, color: Colors.red[500]),
-      ]));
-}
-
-class FrontPageBoxes extends StatefulWidget {
-  const FrontPageBoxes({Key? key}) : super(key: key);
-
-  @override
-  State<FrontPageBoxes> createState() => _FrontPageBoxesState();
-}
-
-class _FrontPageBoxesState extends State<FrontPageBoxes> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        padding: const EdgeInsets.all(32),
-        child: InkWell(
-            borderRadius: BorderRadius.circular(25),
-            child: Ink(
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width * 0.8,
-              color: Colors.grey,
-            )));
   }
 }
